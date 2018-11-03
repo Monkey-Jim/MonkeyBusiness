@@ -471,9 +471,7 @@ grid-area: textArea;
 </body>
 
 <script>
- window.onload = function() {
-  var context = new AudioContext();
-}
+
 
 
 
@@ -651,6 +649,7 @@ function testVid(source, vdtitle,score){
 tag.src="https://www.youtube.com/iframe_api";
  var firstScriptTag = document.getElementsByTagName('script')[0];
  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	alert("Okay to begin?");
  playBGMusic(sourceForUnderscore);
 }
 
