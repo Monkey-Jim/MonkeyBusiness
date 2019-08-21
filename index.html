@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>Monkey Jim Music</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+
+<style>
+@-ms-viewport {
+  width: device-width ;
+}
+
+body, html {
+   background-image: radial-gradient(circle at 0% 0%, gray 25%,lightgray,blue,lightgreen );
+   height: 100%;
+    margin: 0;
+    width: 100%;
+    display:table;
+    margin: 0;
+  
+}
+#topContainer{
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+    "headerTitle";
+}
+
+  
+ 
+
+#myCircle{ /*monkey jim*/
+    grid-area: imgArea;
+  border-radius: 50%;
+  width: 100%;
+  visibility: visible;
+  padding-bottom: 100%;
+  background: transparent;
+  background-image: url("https://monkey-jim.github.io/MonkeyBusiness/images/monkeyjim.jpg");
+ background-size: cover;
+}
+
+#myCircle2{ /*gorilla*/
+  visibility: hidden;;
+   grid-area: imgArea;
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+  background: transparent;
+  background-size: cover;
+   /*highest number on top*/
+   background-image: url("https://monkey-jim.github.io/MonkeyBusiness/images/gorilla2.jpg");
+}
+
+
+
+
+
+
+   
+
+
+
+
+
+ 
+#aboutUs, #contactUs,#musLink,#vidLink{
+   
+   width: 100%;
+    overflow: hidden;
+    border:1px ridge #333;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#aboutUs{
+    grid-area: aboutlinkArea;
+    background-color: #111;
+}
+
+#contactUs:hover,#vidLink:hover,#musLink:hover,#aboutUs:hover  {background: linear-gradient(to bottom, transparent 0%, blue 100%);} /*;} rgb(201, 102, 1)}*/
+
+#contactUs{
+    grid-area: contactlinkArea;
+    background-color: #19c589;
+}
+
+#musLink{
+grid-area: muslinkArea;
+background-color: #111;
+}
+#vidLink{
+ grid-area:vidlinkArea;
+ background-color: #111;
+
+}
+
+   
+
+
+
+
+h1{font-size:2em;}
+	h2{font-size:1.5em;}
+	h3{font-size:1.17em;}
+	h4{font-size:1em;}
+  h5{font-size:.83em;}
+  h6{font-size:.67em;}
+
+
+#aboutText{
+    grid-area: textArea;
+}
+#contactText{
+    grid-area: textArea;
+}
+
+
+ 
+
+
+#aboutInfo, #contactInfo {
+display:none;
+   
+    background: linear-gradient(to bottom, transparent 0%, lightgoldenrodyellow 100%);
+   /* background: radial-gradient(circle at 0% 0%, #fff 25%,lightgray,silver,lightgreen); */
+   /* background: transparent;*/
+    border-top: 2px ridge gray;
+   /* background-color: lightgoldenrodyellow;*/
+   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  /* justify-items: center; /*along the row axis*/
+  /*along the column axis*/
+   padding-left: 10px;
+   padding-right:10px;
+  
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+  ". textArea ." ; 
+}
+  #chgApe{
+     color:blue;
+ }
+ #chgApe:hover{
+    color:#ccc;
+}
+
+.speech-bubble {
+  width: 100%;
+ height: 100%;
+	position: relative;
+	background: lightgoldenrodyellow;
+	border-radius: .4em;
+   line-height: 1.2;
+ 
+text-align: center;
+  grid-area: bubbleArea;
+  box-shadow: -3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 30px solid transparent;
+	border-top-color: lightgoldenrodyellow;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -15px;
+	margin-bottom: -30px;
+  grid-area: bubbleArea;
+  box-shadow: -3px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+    
+
+
+
+
+
+ #circleHolder {
+    display:grid;
+  grid-template-columns: 20px minmax(100px,auto) minmax(100px,auto);
+  grid-template-rows:  minmax(auto,50px) minmax(auto,100px);
+  grid-row-gap:4px;
+ padding-top:10px;
+ padding-bottom:10px;
+ padding-right: 20px;
+  background: transparent;
+ grid-template-areas: 
+ ". bubbleArea bubbleArea"
+ ". imgArea .";
+
+}
+.navGrid{
+display:grid;
+grid-template-columns: auto;
+grid-template-rows: minmax(10px,auto);
+justify-items: center; /*along the row axis*/
+align-items: center;  /*along the column axis*/
+  /*grid-row-gap:1px;*/
+ padding:0px 5px 5px 5px; /*clockwise distribution*/
+grid-template-areas: 
+"muslinkArea"
+"vidlinkArea"
+"aboutlinkArea"
+"contactlinkArea";
+/*".";*/
+
+
+}
+
+
+
+
+
+
+
+#bubbleSpeak{
+    grid-area: bubbleArea;
+}
+
+
+#MainTitle{
+    color:#19c589;
+     text-align:center;
+     text-shadow:3px -2px #666;
+grid-area: headerTitle;
+}
+
+/***************** THIS AREA FOR DESKTOP RESPONSIVE SETUP *************************************************/
+
+@media screen and (min-width: 680px){
+   .navGrid{display:none;}
+   #desktopView{display:flex;}
+
+#musLink,#vidLink,#aboutUs,#contactUs{flex:1;
+ border:1px solid #cccc;
+}
+
+
+#circleHolder {
+    display:grid;
+  grid-template-columns: 20px minmax(100px,100px) 50px minmax(50px,150px) minmax(auto,50px);
+  grid-template-rows:  minmax(auto,50px) minmax(auto,50px);
+  grid-row-gap:4px;
+ padding-top:10px;
+ padding-bottom:10px;
+ padding-right: 20px;
+  background: transparent;
+ grid-template-areas:
+ ". bubbleArea bubbleArea bubbleArea ." 
+ ". imgArea imgArea . .";
+ 
+
+}
+  
+
+} /*END OF MEDIA SCREEN*/
+/*....................................................*/
+@media screen and (max-width: 680px){
+#desktopView{
+   display:none;
+}
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>    
+    
+            <div class="desktopContainer" id="desktopView">
+                    <a id="musLink" href="mjMusic.html">Music Only</a>
+                    <a id="vidLink" href="mjMedia.html">Pics/Video w/music</a>
+                 <a href="#" id="aboutUs" onclick="monkeytalk('aboutMJ')"  >What's New?</a>
+                   <a href="#" id="contactUs" onclick="monkeytalk('contactMJ')" >Contact MJim</a>
+            </div>
+    
+    
+    
+    
+    
+    
+    <div id="topcontainer">
+      
+                  <h1 id="MainTitle">MONKEY JIM MUSIC</h1>
+                
+                
+    </div>  <!--end of topcontainer-->
+
+      
+   
+        <div class="circleContainer" id="circleHolder">
+               
+            <div id="myCircle"></div>
+            <div id="myCircle2"></div>
+            <div class="speech-bubble"id="bubbleSpeak"><h3>Let's listen to some Music!</h3></div>
+            
+        </div>
+        
+  
+   
+
+   
+
+
+    <div id="contactInfo" >
+            <div id="contactText">
+           
+               <h3> Send to:  <b> monkeyjmusic@gmail.com</b> </h3>
+            </div>
+               </div>
+
+  
+    
+    <div id="aboutInfo" >
+        <div id="aboutText">
+     <h4> Music by Monkey Jim, recorded raw with minimal processing at Simian Hall. Musicians and engineers worked for peanuts to
+         get this website off the ground. We're just getting started and testing out a few areas before they're complete, so please be patient. Every effort
+         will be made to make your experience enjoyable while adjustments are made. In the meantime, please refer all complaints and criticisms to  
+         <a id= "chgApe" role="button" href="#" onclick="changeApes()"> <strong>Human Resources.</strong></a> </h4> 
+    </div>
+    </div>
+   
+   
+
+        <div class="navGrid" >
+         
+           <a id="musLink" href="mjMusic.html">Music Only</a>
+            <a id="vidLink" href="mjMedia.html">Pics/Video w/music</a>
+         <a href="#" id="aboutUs" onclick="monkeytalk('aboutMJ')"  >What's New?</a>
+           <a href="#" id="contactUs" onclick="monkeytalk('contactMJ')" >Contact MJim</a>
+           
+          </div>
+          
+</body>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function monkeytalk(textToShow) {
+    switch (textToShow){
+    case "aboutMJ":
+    
+    document.getElementById("aboutInfo").style.color ="black";
+    document.getElementById("aboutInfo").style.display ="grid";
+    
+    document.getElementById("contactInfo").style.display ="none";
+    document.getElementById("mMsg").style.display ="none";
+   
+        break;
+    case "contactMJ":
+   
+    
+    document.getElementById("contactInfo").style.color ="black";
+    document.getElementById("contactInfo").style.display ="grid";
+    document.getElementById("aboutInfo").style.display ="none";
+   // document.getElementById("mMsg").style.display ="none";
+    
+    break;
+    }
+}
+
+function changeApes(){
+  // document.getElementById("myCircle2").style.setProperty("z-index","2");
+   //document.getElementById("myCircle2").style.diplay= "block";
+   document.getElementById("myCircle2").style.visibility= "visible";
+   document.getElementById("myCircle").style.visibility="hidden";
+  
+   document.getElementById("bubbleSpeak").innerHTML="<h3> You got a question for me? <h3>"
+setTimeout(reverseApeChange,8000)
+   
+    
+ 
+
+}
+
+function reverseApeChange(){
+    document.getElementById("myCircle").style.visibility= "visible";
+   document.getElementById("myCircle2").style.visibility="hidden";
+   document.getElementById("bubbleSpeak").innerHTML="<h3> Thanks for your patience! <h3>"
+}
+
+
+
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+   if (!event.target.matches("#aboutUs") &&(!event.target.matches("#contactUs"))) {
+   
+    document.getElementById("aboutInfo").style.display ="none";
+    document.getElementById("contactInfo").style.display ="none";
+    
+    
+}
+
+}  
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</html>
